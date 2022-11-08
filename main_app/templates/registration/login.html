@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Please Login</h1>
+
+<form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn" type="submit" value="Login"/>
+    <!-- Takes use back to originally intended place when they've logged in.  redirect to referrer -->
+    <input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+{% endblock %}
